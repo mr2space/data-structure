@@ -4,17 +4,22 @@ int print(int num)
     printf(" %d \n", num);
     return 0;
 }
+
+int swap(int * num1,int * num2){
+    int temp = *num1;
+    *num1 = *num2;
+    *num2 = temp;
+    return 0;
+}
 int Insertion(int arr[],int arr_size){
     int i = 0;
     int j = 0;
     int  key = arr[1];
     for(i = 1;i<arr_size;i++){
-        // print(key);
-        // print(i);
         key = arr[i];
-        j = i;
-        while(j>=0 && key < arr[j]){
-            arr[j] = arr[j-1];
+        j = i-1;
+        while(j>=0 && arr[j] > key){
+            arr[j+1] = arr[j];
             j--;
         }
         arr[j+1] = key;
